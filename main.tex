@@ -1,0 +1,321 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+% Change the margins
+\usepackage[margin=0.3in]{geometry} 
+
+% Change the lines spacing
+\usepackage{setspace} 
+
+% For changing the item separation in itemize environment
+\usepackage{enumitem}
+
+% For named colors
+\usepackage{xcolor}
+
+% Change the default font
+\usepackage{fontspec}
+\setmainfont{Fontin}[ 
+Extension = .otf,
+UprightFont = *-Regular,
+BoldFont = *-Bold,
+ItalicFont = *-Italic,
+]
+
+% Define color for the links
+\definecolor{cobalt}{rgb}{0.0, 0.28, 0.67} 
+
+% Setup the hyperlinks
+\usepackage{hyperref}
+\hypersetup{%
+  colorlinks=true,% hyperlinks will be black
+  urlcolor=cobalt,% hyperlink borders will be red
+}
+
+% Item separation for work experience enumeration
+\newlength{\workexitemsep}
+\setlength{\workexitemsep}{-1.2mm} 
+
+% Separation between section and first line
+\newlength{\sectionbottommargin}
+\setlength{\sectionbottommargin}{-0mm} 
+
+% Item separation for work experience enumeration
+\newlength{\workexitemsep}
+\setlength{\workexitemsep}{-1.2mm} 
+
+
+% Empty environment
+\newenvironment{nothing}{}
+
+
+%% Define macros
+% For declaring section title with a hrule
+\newcommand{\sectiontitle}[1]{
+  \textbf{\Large{\sffamily #1}}
+  \begin{center}
+    \vspace{-0.55cm} 
+    \rule{0.945\textwidth}{1.1pt} 
+  \end{center}
+  \vspace{-0.1cm} 
+}
+
+
+\begin{document}
+\begin{singlespace}
+    {\ \ifdefined\cv\vspace{0.5cm}\fi}
+    {\ \ifdefined\resume\vspace{-0.5cm}\fi}
+    \begin{center}
+        \textbf{\Huge \sffamily Suyash Mahar}
+    \end{center}
+    \begin{center}
+        F-159, Ravindra Bhawan, IIT Roorkee, Roorkee, Uttarakhand, India - 247667
+    \end{center}
+    \begin{center}
+        \vspace{-0.2cm}
+        \href{mailto:suyash12mahar@outlook.com}{suyash12mahar@outlook.com} $\cdot$ \href{http://suyashmahar.com}{suyashmahar.com} $\cdot$ \href{http://github.com/suyashmahar}{github/suyashmahar}
+    \end{center}
+\end{singlespace}
+
+    \sectiontitle{Education}
+    \begin{tabular}{p{0.19\textwidth} p{0.7\textwidth}}
+      \hfill \textit{Bachelor of Technology}         & \large \textbf{Indian Institute of Technology Roorkee} (IITR) \\
+      \hfill \footnotesize 2016-2020                 & Electronics and Communication Engineering\\
+                                                     & \textbf{CGPA}: 9.17/10, \textbf{Rank} 4/84\\
+      {\ifdefined\cv \vspace{2mm} \fi}
+      \hfill\textbf{\textit{Coursework includes}}    & {\ifdefined\cv \vspace{2mm} \fi}Computer Architecture and Microprocessors*, Digital Logic Design*, Operating Systems, Embedded System Design \& Data Structures and Algorithms.\\
+                                                     & \hfill {\footnotesize *Grade for exceptional performance}
+    \end{tabular} 
+    
+
+    \sectiontitle{Interests}
+    % \vspace{\sectionbottommargin}
+    \begin{tabular}{p{0.908\textwidth} p{0.01\textwidth}} 
+    \hfill Computer Architecture, Memory Systems, Digital Logic Design and Re-configurable \& Heterogeneous Computing &\\
+    \end{tabular}
+    \vspace{2mm}
+ 
+
+    \sectiontitle{Publications} 
+    % \ifdefined\cv
+    \vspace{-3mm}
+    % \fi
+    \begin{nothing}
+    \vspace{\sectionbottommargin} 
+    
+    \ifdefined\resume
+        \vspace{-0.2cm} 
+    \fi 
+
+    \begin{enumerate}
+        \ifdefined\cv
+        \item %L. Yavits, \textbf{S. Mahar}, R. Ginosar, O. Mutlu and M. Erez \\
+                \textbf{WLAD: Wear Leveling in Resistive Memories using Programmable Address Decoder} (Under review)\\
+                {\footnotesize In \textit{26th IEEE International Symposium on High-Performance Computer Architecture (HPCA 26)} }%Vol. XX, No. x1, xxx. – xxx. xxxx.}
+        \fi
+        \item D. Saxena, \textbf{S. Mahar}, V. Raychoudhury, J. Cao\\
+                \textbf{Scalable, High-speed On-chip-based NDN Name Forwarding using FPGA} [\href{https://doi.org/10.1145/3288599.3288613}{ACM}]\\
+                {\footnotesize In Proceedings of the \textit{20th Int'l Conf. on Distributed Computing and Networking (ICDCN)}, Bangalore, India, January 04 - 07, 2019}
+    \end{enumerate}
+    \end{nothing}
+  
+    
+    \ifdefined\resume
+        \vspace{-0.2cm} 
+    \fi 
+    \sectiontitle{Work Experiences}
+    
+    \begin{tabular}{p{0.12\textwidth} p{0.8\textwidth}}
+        \centering June 2019       & \textbf{Wear Levelling in Resistive Memories} \\
+        \centering -              & Dr. Leonid Yavits and \href{http://webee.technion.ac.il/~ran/}{Prof. Ran Ginosar}, VLSI group \hfill \textit{Technion, Israel}\\ 
+        \centering July 2019      & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep] 
+        \item Worked on wear-levelling for Phase Change Memories using a programmable address decoder.
+        \item Designed the architecture for wear levelling technique modifying the PCM peripheral circuitry and memory controller relation (LPDDR2-NVM and DDRx).
+        \item Performed simulation using custom written C++ and Python tools for performance, energy and efficiency evaluation.
+    \end{itemize}
+    \end{tabular}  
+    
+    \ifdefined\cv
+        \vspace{-0.2cm}
+    \fi
+    \ifdefined\resume
+        \vspace{-0.4cm}
+    \fi
+        
+    \begin{tabular}{p{0.12\textwidth} p{0.8\textwidth}}
+        \centering May 2018       & \textbf{Design of accurate energy estimation tool for DRAM} [\href{http://suyashmahar.com/resources/poster-summer-2018.pdf}{poster}, \href{http://github.com/CMU-SAFARI/VAMPIRE}{tool}] \\
+        \centering -              & \href{https://users.ece.cmu.edu/~saugatag/}{Dr. Saugata Ghose}, SAFARI research group \hfill \textit{Carnegie Mellon Univ., USA}\\
+        \centering July 2018      & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
+        \item Worked on architecture and implementation of a tool to estimate energy consumption of DRAM.
+        \item Developed methods for accurately extracting energy of individual DRAM commands from standard command loop’s current.
+        \ifdefined\cv
+        \item Devised new methodology for estimating energy of a memory trace to increase its accuracy.
+        \fi
+        \item The tool is publicly available on \href{https://github.com/cmu-safari/vampire}{github/cmu-safari/vampire}.
+    \end{itemize}
+    \end{tabular}
+     
+    \ifdefined\cv
+        \vspace{-0.2cm}
+    \fi
+    \ifdefined\resume
+        \vspace{-0.4cm}
+    \fi
+    
+    \begin{tabular}{p{0.12\textwidth} p{0.8\textwidth}}
+        \centering July 2017       & \textbf{Design of efficient FIB table for NDN routers} \\
+        \centering -              & \href{http://www.users.miamioh.edu/raychov/}{Prof. Vaskar Raychoudhury} and Dr. Divya Saxena \hfill \textit{IIT Roorkee, India}\\
+        \centering January 2018      & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
+        \item Worked on ways to accelerate FIB lookups in NDN routers using re-configurable hardware.
+        \item Work included designing efficient data-structure for the FIB and implementing it on an FPGA
+        \item Speedup of up to $\sim$4.1 compared to previously proposed FPGA based design was obtained.
+    \end{itemize}
+    \end{tabular}
+    
+    \ifdefined\cv
+        \vspace{-0.2cm}
+    \fi
+    \ifdefined\resume
+        \vspace{-0.4cm}
+    \fi
+    
+    \begin{tabular}{p{0.12\textwidth} p{0.8\textwidth}}
+        \centering May 2017       & \textbf{FPGA implementation of CORDIC algorithms} [\href{http://suyashmahar.com/resources/project-report-summer-2017.pdf}{report}] \\
+        \centering              & \href{http://faculty.iitr.ac.in/~bpdasfec/}{Prof. Bishnu Prasad Das} \hfill \textit{IIT Roorkee, India}\\ 
+        \centering               & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
+        \item Studied and implemented CORDIC algorithms on FPGA
+        \item Used Python (Jupyter notebook) for modeling and Verilog for design and implementation.
+    \end{itemize}
+    \end{tabular}
+    
+    \ifdefined\cv
+        \vspace{-0.2cm}
+    \fi
+    \ifdefined\resume
+        \vspace{-0.4cm}
+    \fi
+    
+    \ifdefined\cv {
+    \begin{tabular}{p{0.12\textwidth} p{0.8\textwidth}}
+        \centering June 2017        & \textbf{Single-cycle 32-bit RISC processor} [\href{https://github.com/suyashmahar/RISC-processor}{link}] \\
+        \centering                  & Hobby Project\\
+        \centering                  & \vspace{-0.6cm}\begin{itemize}[itemsep=-2mm]
+        \item Created a simple implementation of 32-bit MIT 6.004 architecture with improvements and additions.
+    \end{itemize}
+    \end{tabular}  
+    \newpage   
+    } \fi
+    
+    \sectiontitle{Teaching Experiences}
+    
+    
+    \begin{tabular}{p{0.12\textwidth} p{0.8\textwidth}}
+        \centering Spring'18, '19 & \textbf{Digital Logic Design: Undergraduate teaching assistant}  [\href{http://suyashmahar.com/ecn104-assignments/}{repository}]  \hfill Dept. of ECE, IITR  \\
+        \centering                & Enrolment: 85 (2018), 104 (2019)\\
+        \ifdefined\cv {
+        \centering                & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
+        \item Work included writing assignment series on hardware description using Verilog HDL for ECN104 and teaching students basics of hardware description using Verilog.
+        } \fi
+    \end{itemize}
+    \end{tabular}   
+    
+    \ifdefined\cv
+        \vspace{-0.2cm} 
+    \fi 
+    \ifdefined\resume
+        \vspace{-0.4cm} 
+    \fi 
+
+    \begin{tabular}{p{0.12\textwidth} p{0.8\textwidth}}
+        \centering Autumn'18       & \textbf{Object-oriented programming: Undergraduate teaching assistant} \hfill Dept. of CSE, IITR \\
+        \centering                & Enrolment: 87\\
+        \ifdefined\cv {
+        \centering                & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
+        \item Helping freshers with little or no experience in programming to get started with basics of Java.
+        } \fi
+    \end{itemize}
+    \end{tabular}
+    
+    \ifdefined\cv {
+    \sectiontitle{Awards and Achievements}
+    
+    \begin{tabular}{p{0.12\textwidth} p{0.8\textwidth}}
+        \centering April 2017       & Dedicated member award, National Service Scheme (IIT Roorkee) \hfill
+    \end{tabular}
+
+    \ifdefined\cv
+        \vspace{0.2cm}
+    \fi
+
+    \begin{tabular}{p{0.12\textwidth} p{0.8\textwidth}}
+        \centering May 2016       & \textbf{Joint Entrance Examination, Advanced (Indian Institute of Technology)}\\
+        \centering                & All India Rank 1387, 99.3 percentile
+    \end{tabular}
+      
+    \ifdefined\cv
+        \vspace{0.2cm}
+    \fi
+    
+    \begin{tabular}{p{0.12\textwidth} p{0.8\textwidth}}
+        \centering Dec. 2014       & \textbf{International Cyber Olympiad (SilverZone)} \\
+                                   & Olympiad Rank 11, State Rank 1
+    \end{tabular}
+
+    \vspace{0.2cm}
+
+    } \fi
+
+    
+    \ifdefined\resume
+        \vspace{-0.4cm} 
+    \fi 
+    \sectiontitle{Other Projects}
+
+    \ifdefined\resume
+        \vspace{-0.2cm}
+    \fi 
+
+    \ifdefined\cv
+    \begin{tabular}{p{0.12\textwidth} p{0.8\textwidth}}
+        \centering Dec. 2018       & \textbf{Real time editor for file streams in Linux} [\href{https://github.com/suyashmahar/fsed}{link}] \\
+                                   & \vspace{-0.6cm}\begin{itemize}[itemsep=-2mm]\item Wrote a C program to replace content read from a file by a process without actually changing anything on the disk.
+                                    \item Used a combination of system call \texttt{ptrace(2)} and text manipulation to achieve real time modification of file streams.
+    \end{itemize}
+    \end{tabular}
+
+    \vspace{-0.2cm}
+
+    \fi 
+    
+    \begin{tabular}{p{0.12\textwidth} p{0.8\textwidth}}
+        \centering Dec. 2017       & \textbf{.gitignore file manager for Linux (Shell programming)} [\href{https://github.com/suyashmahar/pine}{link}] \\
+        \ifdefined\cv {
+                                   & \vspace{-0.6cm}\begin{itemize}[itemsep=-2mm]\item Project work includes writing BASH shell script. \end{itemize}
+        } \fi
+    \end{tabular}
+        
+    \ifdefined\cv
+        \vspace{-0.2cm}
+    \fi
+    \ifdefined\resume
+        \vspace{0.1cm}
+    \fi
+ 
+    \begin{tabular}{p{0.12\textwidth} p{0.8\textwidth}}
+        \centering     2017   & \textbf{Triangle art generating views (Java programming, Team size: 3)} [\href{https://github.com/sdsmdg/trianglify}{link}] \\
+        \ifdefined\cv {
+            \centering        & \vspace{-0.6cm}\begin{itemize}[itemsep=-2mm]\item Uses Delaunay triangulation and custom coloring algorithm for generating views for Android. \end{itemize}
+        } \fi
+    \end{tabular}
+        
+    \sectiontitle{\sffamily Skills}
+    
+    \begin{tabular}{p{0.12\textwidth} p{0.8\textwidth}}
+    \centering \textbf{Comp. Lang.} & (System)Verilog, C, C++, Python, Bash Scripting, MIPS assembly, SPICE, \LaTeX, C\#.NET, Java \ifdefined\cv\\[1mm]\fi\ifdefined\resume\\\fi
+    \centering \textbf{Tools} & Intel Pin, gem5, Vivado, MATLAB, LTspice, Cadence Virtuoso \ifdefined\cv\\[1mm]\fi\ifdefined\resume\\\fi
+    \centering \textbf{Languages} & English, Hindi \ifdefined\cv\\[1mm]\fi\ifdefined\resume\\\fi
+    \end{tabular}
+    
+    
+     
+\end{document}
