@@ -322,42 +322,42 @@ ItalicFont = *-Italic,
 \sectiontitle{Research Projects}
 
 \begin{enumerate}
-        \item \textbf{Characterizing CXL Devices and Failures}\hfill{}May 2023-Present\\
-    \textit{UC San Diego and UIUC}\vspace{-0.15cm}
-    \begin{enumerate}[itemsep=\projitemsep]
+        \item \textbf{Characterizing CXL Devices and Failures}\hfill{}Feb 2024 - Present\\
+    \textit{UC San Diego, UIUC, and UC Berkeley}\vspace{-0.15cm}
+    \begin{itemize}[itemsep=\projitemsep]
             \item Characterizing CXL memory expanders and FPGAs for a variety of workloads and microbenchmarks.
-            \item Worked on classifying CXL shared memory failure modes.
+            \item Working on classifying CXL shared memory failure modes.
             \item Developing failure identification and recovery mechanisms.
-    \end{enumerate}
-        \item \textbf{RPCool: CXL-based Shared Memory RPCs}\hfill{}May 2023-Present\\
+    \end{itemize}
+        \item \textbf{RPCool: CXL-based Shared Memory RPCs}\hfill{}May 2023 - Present\\
     \textit{UC San Diego}\vspace{-0.15cm}
-    \begin{enumerate}[itemsep=\projitemsep]
+    \begin{itemize}[itemsep=\projitemsep]
             \item Developed an RPC framework using CXL's shared memory (SHM) capabilities for datacenter applications.
-            \item Implemented safety through new memory protection features while avoiding serialization by passing ptrs over SHM.
-            \item Addressed scalability limitations of CXL by integrating RDMA-based communication. \end{enumerate}
+            \item Implemented safety through new memory protection features while avoiding serialization and compression.
+            \item Addressed scalability limitations of CXL by integrating RDMA-based communication. \end{itemize}
         \item \textbf{System-level storage abstraction for relocatable and recoverable persistent memory}\hfill{}Dec 2020 - Dec 2021\\
     \textit{UC San Diego}\vspace{-0.15cm}
-    \begin{enumerate}[itemsep=\projitemsep]
+    \begin{itemize}[itemsep=\projitemsep]
             \item Implemented a new abstraction for accessing persistent memory using Puddles.
             \item Puddles use native, 8-byte pointers for pointing to persistent data while being relocatable.
             \item Puddles provide recovery as a system support, all data is guaranteed to be recovered by the system after a crash.
-    \end{enumerate}
+    \end{itemize}
 
         \item \textbf{Crash-Consistency bug detection in Persistent Memory software}\hfill{}May 2020 - Aug 2020\\
     \textit{University of Virginia}\vspace{-0.15cm}
-    \begin{enumerate}[itemsep=\projitemsep]
+    \begin{itemize}[itemsep=\projitemsep]
             \item Implemented an end-to-end framework for testing and reporting crash-consistency bugs (CCB).
             \item Designed a fuzzer optimized for focussing on CCB prone execution paths.
             \item Found new, previously unreported bugs in Intel's PMDK library.
-    \end{enumerate}
+    \end{itemize}
 
         \item \textbf{Optimization of hardware support for Persistent Memories} \hfill{}Aug 2019 - Dec 2019\\
     \textit{University of Virginia}\vspace{-0.15cm}
-    \begin{enumerate}[itemsep=\projitemsep]
-             \item PM systems require various h/w support, such as encryption, compression, and wear-leveling.
+    \begin{itemize}[itemsep=\projitemsep]
+             \item PM systems require various H/W support, such as encryption, compression, and wear-leveling.
              \item Worked on a software transparent way to speed them up by precomputing their results.
              \item Achieved significant performance and energy improvement across PMDK workloads.
-    \end{enumerate}
+    \end{itemize}
 
 %     \centering Aug 2019       &  \\
 %     \centering -              & \href{https://www.cs.virginia.edu/~smk9u/}{Prof. Samira Khan}, ShiftLab\\ 
@@ -383,14 +383,9 @@ ItalicFont = *-Italic,
 \ifdefined\resume
     \vspace{-0.2cm} 
 \fi 
-\sectiontitle{Outreach Activities}
 
-% \ifdefined\cv
-%     \vspace{-0.2cm}
-% \fi
-% \ifdefined\resume
-%     \vspace{-0.4cm}
-% \fi
+\newpage
+\sectiontitle{Outreach Activities}
 
 \begin{tabular}{p{\durlen} p{\deslen}}
   \centering 2022 -       & \textbf{Co-founder, Students@Systems group} [\href{https://students-at-systems.org}{Website}]  \hfill \textit{} \\
@@ -404,10 +399,21 @@ ItalicFont = *-Italic,
 \vspace{-0.2cm}
 
 \begin{tabular}{p{\durlen} p{\deslen}}
+  \centering 2022 -       & \textbf{Master's Research Mentoring - UCSD}  \hfill \textit{} \\
+  \centering 2024         & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
+          \item Mentored master's student Zifeng Zhang on systems research.
+          \item Worked on implementing RDMA-based distributed shared memory.
+      
+  \end{itemize}
+\end{tabular}
+
+\vspace{-0.2cm}
+
+\begin{tabular}{p{\durlen} p{\deslen}}
   \centering 2022 -       & \textbf{Undergraduate Research Mentoring - UCSD}  \hfill \textit{} \\
-  \centering Present      & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
-          \item Mentoring undergrads, Drawin Chen and Nirmal Agnihotri on getting started with CS research.
-          \item Working with WebAssembly and persistent memory for serverless computing environment.
+  \centering 2023         & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
+          \item Mentored undergrads, Drawin Chen and Nirmal Agnihotri on getting started with CS research.
+          \item Worked with WebAssembly and persistent memory for serverless computing environment.
       
   \end{itemize}
 \end{tabular}
@@ -416,7 +422,7 @@ ItalicFont = *-Italic,
 
 \begin{tabular}{p{\durlen} p{\deslen}}
   \centering 2021 -       & \textbf{Grad Women in Computing (GradWiC) Mentoring}  \hfill \textit{} \\
-  \centering Present      & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
+  \centering 2023      & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
           \item Mentoring and monthly meetings with mentees on managing different aspects of PhD life.
       
   \end{itemize}
