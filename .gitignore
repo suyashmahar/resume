@@ -1,0 +1,7 @@
+*.log
+*.out
+*.aux
+*-*-*.pdf
+*.~undo-tree~
+resume.pdf
+cv.pdf

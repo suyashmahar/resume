@@ -1,0 +1,532 @@
+\documentclass{article}
+
+\usepackage[includeheadfoot, left=0.5in, right=0.675in,  top=0.3in,  bottom=0.3in]{geometry}
+
+% For \text command in mathmode
+\usepackage{amsmath}
+
+% Change the line spacing
+\usepackage{setspace} 
+
+% For changing item separation in itemize environment
+\usepackage{enumitem}
+
+% For named colors
+\usepackage{xcolor}
+
+% For bigger cdots
+\usepackage{graphicx}
+
+% For custom font
+\usepackage{fontawesome}
+
+% Disable page numbering
+\usepackage{lastpage}
+
+% For fancy headers
+\usepackage{fancyhdr}
+
+% Change the default font
+\usepackage{fontspec}
+\setmainfont{Fontin}[ 
+Extension = .otf,
+UprightFont = *-Regular,
+BoldFont = *-Bold,
+ItalicFont = *-Italic,
+]
+
+\usepackage{sansmath}
+
+% Define color for the links
+\definecolor{cobalt}{rgb}{0.0, 0.28, 0.67} 
+
+% Setup the hyperlinks
+\usepackage{hyperref}
+\hypersetup{%
+  colorlinks=true,% hyperlinks will be black
+  urlcolor=cobalt,% hyperlink borders will be red
+}
+\usepackage{soul}
+% For bigger cdots
+\makeatletter
+\newcommand*{\bigcdot}{}% Check if undefined
+\DeclareRobustCommand*{\bigcdot}{%
+  \mathbin{\mathpalette\bigcdot@{}}%
+}
+\newcommand*{\bigcdot@scalefactor}{.5}
+\newcommand*{\bigcdot@widthfactor}{1.15}
+\newcommand*{\bigcdot@}[2]{%
+  % #1: math style
+  % #2: unused
+  \sbox0{$#1\vcenter{}$}% math axis
+  \sbox2{$#1\cdot\m@th$}%
+  \hbox to \bigcdot@widthfactor\wd2{%
+    \hfil
+    \raise\ht0\hbox{%
+      \scalebox{\bigcdot@scalefactor}{%
+        \lower\ht0\hbox{$#1\bullet\m@th$}%
+      }%
+    }%
+    \hfil
+  }%
+}
+\makeatother
+
+% Item separation for work experience enumeration
+\newlength{\workexitemsep}
+\setlength{\workexitemsep}{-1.6mm} 
+
+% Item separation for project description enumeration
+\newlength{\projitemsep}
+\setlength{\projitemsep}{-1.2mm} 
+
+% Separation between section and first line
+\newlength{\sectionbottommargin}
+\setlength{\sectionbottommargin}{1mm} 
+
+% First column of experience
+\newlength{\durlen}
+\setlength{\durlen}{0.08\textwidth}
+
+% Second column of experience
+\newlength{\deslen}
+\setlength{\deslen}{0.86\textwidth}
+
+% Empty environment
+\newenvironment{nothing}{}
+
+%% Define macros
+% For declaring section title with a hrule
+\newcommand{\sectiontitle}[1]{
+  \textbf{\Large{\sffamily #1}}
+  \begin{flushright}
+      \vspace{-0.48cm} 
+      \rule{0.975\textwidth}{1.1pt}
+  \end{flushright}
+  \vspace{-0.1cm} 
+}
+
+% For declaring subsection title
+\newcommand{\subsectiontitle}[1]{
+  \textbf{\large{\sffamily\hspace{0cm} #1}}
+  \begin{center}
+      \vspace{-0.55cm} 
+      % \rule{0.945\textwidth}{1.1pt} 
+  \end{center}
+  \vspace{-0.1cm} 
+}
+
+% Define color for the publication text
+\definecolor{pubcolor}{gray}{0.25} 
+
+% For primary author in publication list
+\newcommand{\pubprimauthor}[1]{\color{black}{\textbf{#1}}\color{pubcolor}}
+
+% For primary author in publication list
+\newcommand{\pubtitle}[1]{\textbf{\color{black}{#1}}\color{pubcolor}}
+
+\usepackage{hyperref}
+\usepackage{etoolbox} 
+
+% Define the header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{
+  \sffamily\it \textcolor{gray}{Resume - Suyash Mahar}
+}
+\rfoot{\sffamily\it \textcolor{gray}{Page {\thepage} of \begin{NoHyper}\pageref{LastPage}\end{NoHyper}}}
+  \renewcommand{\headrulewidth}{0pt}
+
+% Different style for the first page
+\fancypagestyle{firstpage}{%
+  \fancyhf{}% clear default for head and foot
+  \rfoot{\sffamily\it \textcolor{gray}{Page {\sffamily\thepage} of \begin{NoHyper}\pageref{LastPage}\end{NoHyper}}}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+\vspace{-2.5cm}
+
+\begin{document}
+
+\thispagestyle{firstpage}
+
+% Header
+\begin{singlespace}
+    % Name
+    \begin{center}
+        \textbf{\Huge \sffamily Suyash Mahar}
+    \end{center}
+
+    % Address
+    \begin{center}
+        \vspace{-0.1cm}
+        10702 Dabney Dr Apt 95, San Diego, CA - 92126
+    \end{center}
+
+    % Communication
+    \begin{center}
+        \vspace{-0.2cm}
+        \faPhone\ +1 412 294 8345 $\bigcdot$
+        \faEnvelope\ \href{mailto:smahar@ucsd.edu}
+        {smahar@ucsd.edu} $\bigcdot$ \faGlobe\ \href{https://suyashmahar.com}{suyashmahar.com} %$\bigcdot$ \faGithub\ \href{https://github.com/suyashmahar}{github/suyashmahar}
+    \end{center}
+\end{singlespace}
+
+%% == %% == %% == %% == %% == %% == %% == %%
+\sectiontitle{Education}
+
+\begin{tabular}{p{0.24\textwidth} p{0.6\textwidth}}
+  \hfill \textit{Doctor of Philosophy}           & \large\textbf{University of California San Diego} \\
+  \hfill \footnotesize 2020-Present              & Computer Science and Engineering (\textit{Advisor: Prof. Steven Swanson)}\\[2mm]
+  \hfill \textit{Bachelor of Technology}         & \large \textbf{Indian Institute of Technology (IIT) Roorkee} \\
+  \hfill \footnotesize 2016-2020                 & Electronics and Communication Engineering\\
+\end{tabular} 
+
+\vspace{2mm}
+
+%% == %% == %% == %% == %% == %% == %% == %%
+\sectiontitle{Research Interests}
+
+\begin{tabular}{p{0.908\textwidth} p{0.01\textwidth}} 
+  System and software support for emerging memory/storage hierarchy in datacenters.&\\
+\end{tabular}
+\vspace{4mm}
+
+%% == %% == %% == %% == %% == %% == %% == %%
+\sectiontitle{Industry Experience}
+
+\begin{tabular}{p{\durlen}p{\deslen}}
+  \centering June 2023       & \textbf{Google's Cloud Workload Acceleration} \hfill \textit{Google LLC} \\
+  \centering -               & \textit{\href{https://techsysinfra.google/research}{Systems Research Group (SRG)}}\\ 
+  \centering Dec 2023        & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
+          \item Studied Google's workload traces for HW acceleration opportunities.
+          \item Built tools for finding chain-of-accelerator patterns across the fleet.
+  \end{itemize}
+\end{tabular}
+
+\begin{tabular}{p{\durlen} p{\deslen}}
+  \centering June 2022       & \textbf{Meta's Workload profiling for next generation processors} \hfill \textit{Meta Platforms Inc.} \\
+  \centering -               & \textit{Capacity Engineering and Analysis (CEA)} \\ 
+  \centering Sept 2022       & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep] 
+          \item Worked on profiling and tracing for Meta's workloads to understand hardware needs for the next generation servers.
+          \item Performed detailed analysis of production workloads' memory behavior.
+          \item Evaluated new hardware architectures and microarchitectures using live production traffic.
+          \item Pre-print of the work available on \href{https://arxiv.org/pdf/2303.08396}{arXiv}.
+  \end{itemize}
+\end{tabular}
+
+\begin{tabular}{p{\durlen} p{\deslen}}
+  \centering Jun 2021       & \textbf{Page migration for tiered memory systems} \hfill \textit{Intel Labs, USA} \\
+  \centering -              & \textit{Systems \& Software Research (SSR)} \\ 
+  \centering Sept 2021      & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep] 
+          \item Worked on an FPGA prototype and kernel driver to migrate pages between memories.
+          \item Implemented support for tracking pages and sending stats over PCIe using memory mapped regs.
+          \item Evaluated the implementation to migrate pages between host memory and FPGA attached DRAM.
+  \end{itemize}
+\end{tabular}
+
+\vspace{-0.2cm}
+
+
+\sectiontitle{Patents} 
+\vspace{-3mm}
+
+\begin{nothing}
+    \vspace{\sectionbottommargin} 
+    
+    \ifdefined\resume
+        \vspace{-0.2cm} 
+    \fi 
+
+    \begin{enumerate}
+            \item H. Wang, \textbf{Suyash Mahar}, A. Dhanotia, W. Su\\
+        \textbf{Sharing Translation Lookaside Buffer Entries Across Central Processing Unit 
+          Cores and Process} \\
+        {\it\footnotesize \textbf{Patent Pending}, Application No. 18080574, U.S. Patent and Trademark Office}
+        
+    \end{enumerate}
+\end{nothing}
+
+
+\sectiontitle{Publications} 
+
+\vspace{-3mm}
+% \fi
+\begin{nothing}
+    \vspace{\sectionbottommargin}
+    \color{pubcolor}
+    
+    \ifdefined\resume
+        \vspace{-0.2cm} 
+    \fi 
+
+    \begin{enumerate}
+            \item \pubprimauthor{Suyash Mahar}, E. Hajyasini, S. Lee, Z. Zhang, M. Shen, S. Swanson\\
+        \pubtitle{Telepathic Datacenters: Fast RPCs using Shared CXL Memory} \\
+        {\footnotesize \textit{(Under review)}}
+            \item Yi Xu, \pubprimauthor{Suyash Mahar}, Z. Liu, M. Shen, S. Swanson\\
+        \pubtitle{CXL Shared Memory Programming: Barely Distributed and Almost Persistent} \\
+        {\footnotesize \textit{(Under review, DIMES'24)}}
+            \item \pubprimauthor{Suyash Mahar}, H. Wang, W. Shu, A. Dhanotia\\
+        \pubtitle{Workload Behavior Driven Memory Subsystem Design for Hyperscale} \\
+        {\footnotesize \textit{arXiv preprint arXiv:2303.08396, 2023}}\hfill[\href{https://arxiv.org/abs/2303.08396}{arXiv}]
+            \item \pubprimauthor{Suyash Mahar}, M. Shen, TJ Smith, J. Izraelevitz, S. Swanson\\
+        \pubtitle{Puddles: Application-Independent Recovery and Location-Independent Data for Persistent Memory} \\
+        {\footnotesize \textit{19$^\text{th}$ European Conference on Computer Systems (\textbf{EuroSys'24}) \hfill Athens, Greece}} [\href{https://dl.acm.org/doi/abs/10.1145/3627703.3629555}{ACM}]
+            \item \pubprimauthor{Suyash Mahar}, M. Shen, T. Kelly, S. Swanson\\
+        \pubtitle{Snapshot: Fast, Userspace Crash Consistency for CXL and PM Using msync} \\
+        {\footnotesize \textit{41$^\text{st}$ IEEE International Conference on Computer Design (\textbf{ICCD'23}) \hfill Washington DC, USA}} [\href{https://www.computer.org/csdl/proceedings-article/iccd/2023/429100a495/1T97nj4RzFe}{IEEE}]
+            \item \pubprimauthor{Suyash Mahar}, S. Liu, K. Seemakhupt, V. Young, S. Khan.\\
+        \pubtitle{Write Prediction for Persistent Memory Systems} \\
+        {\footnotesize \textit{30$^{\text{th}}$ Int'l Conf. on Parallel Architectures and Compilation Techniques (\textbf{PACT'21}) \hfill Virtual, South Korea}} [\href{https://ieeexplore.ieee.org/document/9563038/}{IEEE}]
+            \item S. Liu*, \pubprimauthor{Suyash Mahar*}, B. Ray., S. Khan.\\
+        \pubtitle{PMFuzz: Test Case Generation for Persistent Memory Programs} \\
+        {\footnotesize \textit{26$^{\text{th}}$ Int'l Conf. on Architectural Support for Progr. Languages and Operating Systems (\textbf{ASPLOS'21}) \hfill Virtual, USA}} [\href{https://dl.acm.org/doi/abs/10.1145/3445814.3446691}{ACM}]\\
+        {\footnotesize \textit{(\ * = Equal contribution authors\ )}}
+            \item L. Yavits, L. Orosa, \pubprimauthor{Suyash Mahar}, J. Ferreira, O. Mutlu., R. Ginosar, M. Erez\\
+        \pubtitle{Enhancing Wear-Leveling and Fault Tolerance in Resistive Memories Using Programmable Address Decoders}\\
+        {\footnotesize \textit{38$^{\text{th}}$ Int'l Conf. on Computer Design (\textbf{ICCD'20})} \hfill Hartford CT, USA} [\href{https://ieeexplore.ieee.org/abstract/document/9283556}{IEEE}]
+            \item D. Saxena, \pubprimauthor{Suyash Mahar}, V. Raychoudhury, J. Cao\\
+        \pubtitle{Scalable, High-speed On-chip-based NDN Name Forwarding using FPGA} \\
+        {\footnotesize \textit{20$^{\text{th}}$ Int'l Conf. on Distributed Computing and Networking (\textbf{ICDCN'19})} \hfill Bangalore, India} [\href{https://doi.org/10.1145/3288599.3288613}{ACM}]
+    \end{enumerate}
+\end{nothing}
+
+\vspace{2mm}
+% \subsectiontitle{(\textit{under review})} 
+% \ifdefined\cv
+%     \vspace{-5mm}
+% \fi
+% \begin{nothing}
+%     \vspace{\sectionbottommargin} 
+
+%     \ifdefined\resume
+%         \vspace{-0.2cm} 
+%     \fi 
+
+%     \begin{enumerate}
+%             \item S. Liu*, \textbf{S. Mahar*}, K. Seemakhupt, V. Young, S. Khan (* = co-first author)\\
+%         \textbf{Write Prediction for Persistent Memory Systems} \\
+%         {\footnotesize Submitted to the \textit{47th  International Symposium on Computer Architecture (ISCA 2020)}} %, Bangalore, India, January 04 - 07, 2019}
+%             \item L. Yavits, \textbf{S. Mahar}, L. Orosa, J. D. Sanches, R. Ginosar, O. Mutlu and M. Erez \\
+%         \textbf{WoLFRaM: Enhancing Wear-Leveling and Fault Tolerance in Resistive Memories Using Programmable Address Decoder}\\
+%         {\footnotesize Submitted to the \textit{50th IEEE/IFIP Int. Conference on Dependable Systems and Networks (DSN 2020)} }%Vol. XX, No. x1, xxx. – xxx. xxxx.}
+%     \end{enumerate}
+% \end{nothing}
+
+
+\ifdefined\resume
+    \vspace{-0.2cm} 
+\fi 
+
+\sectiontitle{Research Projects}
+
+\begin{enumerate}
+        \item \textbf{Characterizing CXL Devices and Failures}\hfill{}May 2023-Present\\
+    \textit{UC San Diego and UIUC}\vspace{-0.15cm}
+    \begin{enumerate}[itemsep=\projitemsep]
+            \item Characterizing CXL memory expanders and FPGAs for a variety of workloads and microbenchmarks.
+            \item Worked on classifying CXL shared memory failure modes.
+            \item Developing failure identification and recovery mechanisms.
+    \end{enumerate}
+        \item \textbf{RPCool: CXL-based Shared Memory RPCs}\hfill{}May 2023-Present\\
+    \textit{UC San Diego}\vspace{-0.15cm}
+    \begin{enumerate}[itemsep=\projitemsep]
+            \item Developed an RPC framework using CXL's shared memory (SHM) capabilities for datacenter applications.
+            \item Implemented safety through new memory protection features while avoiding serialization by passing ptrs over SHM.
+            \item Addressed scalability limitations of CXL by integrating RDMA-based communication. \end{enumerate}
+        \item \textbf{System-level storage abstraction for relocatable and recoverable persistent memory}\hfill{}Dec 2020 - Dec 2021\\
+    \textit{UC San Diego}\vspace{-0.15cm}
+    \begin{enumerate}[itemsep=\projitemsep]
+            \item Implemented a new abstraction for accessing persistent memory using Puddles.
+            \item Puddles use native, 8-byte pointers for pointing to persistent data while being relocatable.
+            \item Puddles provide recovery as a system support, all data is guaranteed to be recovered by the system after a crash.
+    \end{enumerate}
+
+        \item \textbf{Crash-Consistency bug detection in Persistent Memory software}\hfill{}May 2020 - Aug 2020\\
+    \textit{University of Virginia}\vspace{-0.15cm}
+    \begin{enumerate}[itemsep=\projitemsep]
+            \item Implemented an end-to-end framework for testing and reporting crash-consistency bugs (CCB).
+            \item Designed a fuzzer optimized for focussing on CCB prone execution paths.
+            \item Found new, previously unreported bugs in Intel's PMDK library.
+    \end{enumerate}
+
+        \item \textbf{Optimization of hardware support for Persistent Memories} \hfill{}Aug 2019 - Dec 2019\\
+    \textit{University of Virginia}\vspace{-0.15cm}
+    \begin{enumerate}[itemsep=\projitemsep]
+             \item PM systems require various h/w support, such as encryption, compression, and wear-leveling.
+             \item Worked on a software transparent way to speed them up by precomputing their results.
+             \item Achieved significant performance and energy improvement across PMDK workloads.
+    \end{enumerate}
+
+%     \centering Aug 2019       &  \\
+%     \centering -              & \href{https://www.cs.virginia.edu/~smk9u/}{Prof. Samira Khan}, ShiftLab\\ 
+%     \centering Dec 2019        & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep] 
+%     \end{itemize}
+% \end{tabular}
+
+
+% \begin{tabular}{p{\durlen} p{\deslen}}
+%     \centering June 2019       & \textbf{Wear leveling in Persistent Memory} \hfill \textit{Technion, Israel} \\
+%     \centering -              & Dr. Leonid Yavits and \href{http://webee.technion.ac.il/~ran/}{Prof. Ran Ginosar}, VLSI group\\ 
+%     \centering July 2019      & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep] 
+%             \item Worked on wear-leveling in persistent memories (e.g. PCM) using programmable address decoder.
+%             \item Designed architectural modification to PCM array for adding the wear leveling mechanism.
+%     %             \item Developed communication interface between memory and controller for addr/data remapping.%Defined relationship between memory module and memory controller for addr/data remapping. \hl{Comment: I do not understand this point. What is ``define relationship''?}
+%             \item Evaluated performance, energy and efficiency using custom written C++ and Python tools.
+%             \item Lifetime improvement of 1.68x with worst case performance overhead of 3.8\% across SPEC 2006.
+%     \end{itemize}
+% \end{tabular}  
+
+\end{enumerate}
+
+\ifdefined\resume
+    \vspace{-0.2cm} 
+\fi 
+\sectiontitle{Outreach Activities}
+
+% \ifdefined\cv
+%     \vspace{-0.2cm}
+% \fi
+% \ifdefined\resume
+%     \vspace{-0.4cm}
+% \fi
+
+\begin{tabular}{p{\durlen} p{\deslen}}
+  \centering 2022 -       & \textbf{Co-founder, Students@Systems group} [\href{https://students-at-systems.org}{Website}]  \hfill \textit{} \\
+  \centering Present      & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
+          \item Student led group across multiple universities, organizing panels and talks.
+          \item Events focused on helping students with different aspects of PhD life and career.
+      
+  \end{itemize}
+\end{tabular}
+
+\vspace{-0.2cm}
+
+\begin{tabular}{p{\durlen} p{\deslen}}
+  \centering 2022 -       & \textbf{Undergraduate Research Mentoring - UCSD}  \hfill \textit{} \\
+  \centering Present      & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
+          \item Mentoring undergrads, Drawin Chen and Nirmal Agnihotri on getting started with CS research.
+          \item Working with WebAssembly and persistent memory for serverless computing environment.
+      
+  \end{itemize}
+\end{tabular}
+
+\vspace{-0.2cm}
+
+\begin{tabular}{p{\durlen} p{\deslen}}
+  \centering 2021 -       & \textbf{Grad Women in Computing (GradWiC) Mentoring}  \hfill \textit{} \\
+  \centering Present      & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
+          \item Mentoring and monthly meetings with mentees on managing different aspects of PhD life.
+      
+  \end{itemize}
+\end{tabular}
+
+
+\sectiontitle{Volunteer Activities}
+
+\begin{tabular}{p{\durlen} p{\deslen}}
+  \centering 2022    & \hspace{0.5cm}CASA Summer DEI Reading Group\\
+  \centering 2022    & \hspace{0.5cm}Artifact Evaluation Committee, OSDI and ATC 2022\\
+  \centering 2022    & \hspace{0.5cm}Co-organizer, Summer Computer Architecture DEI reading series\\
+  \centering 2021-22 & \hspace{0.5cm}Web chair, Computer architecture long term mentoring (CALM) [\href{http://www.comparchmentoring.org}{Website}]\\
+  \centering 2021-22 & \hspace{0.5cm}UCSD CSE Visit Day Coordinator\\
+\end{tabular}
+    
+    
+\vspace{0.4cm}
+    % \newpage
+    % \sectiontitle{Teaching Experiences}
+
+    % \begin{tabular}{p{\durlen} p{\deslen}}
+    %     \centering Spring 18, 19 & \textbf{Digital Logic Design: Undergraduate teaching assistant}  [\href{http://suyashmahar.com/ecn104-assignments/}{repository}]  \hfill Dept. of ECE, IITR  \\
+    %     \centering                & Enrolment: 85 (2018), 104 (2019)\\
+        
+    %     \centering                & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
+    %     \item Wrote assignments on Verilog HDL and taught basics of HDL and digital design.
+        
+    % \end{itemize}
+    % \end{tabular}   
+    
+    % \ifdefined\cv
+    %     \vspace{-0.2cm} 
+    % \fi 
+    % \ifdefined\resume
+    %     \vspace{-0.4cm} 
+    % \fi 
+
+    % \begin{tabular}{p{\durlen} p{\deslen}}
+    %     \centering Autumn'18       & \textbf{Object-oriented programming: Undergraduate teaching assistant} \hfill Dept. of CSE, IITR \\
+    %     \centering                & Enrolment: 87\\
+        
+    %     \centering                & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
+    %     \item Helped freshers with little or no experience in programming to get started with basics of Java.
+        
+    % \end{itemize}
+    % \end{tabular}
+    
+    % \ifdefined\cv\newpage\fi
+    % \ifdefined\cv {
+    % \sectiontitle{Awards and Achievements}
+    
+    % \begin{tabular}{p{\durlen} p{\deslen}}
+    %     \centering April 2017       & Dedicated member award, National Service Scheme (IIT Roorkee) \hfill
+    % \end{tabular}
+
+    % \sectiontitle{Other Projects}
+
+    % \ifdefined\resume
+    %     \vspace{-0.2cm}
+    % \fi 
+
+    % \ifdefined\cv
+    % \begin{tabular}{p{\durlen} p{\deslen}}
+    %     \centering Dec. 2018       & \textbf{Real time editor for file streams in Linux} (C98) \href{https://github.com/suyashmahar/fsed}{\faGithub} \\
+    %                               & \vspace{-0.6cm}\begin{itemize}[itemsep=-2mm]\item Replaces content read from a file by a process without actually changing it on the disk.
+    %                                 \item Used syscall \texttt{ptrace(2)} and text manipulation to achieve real time modification of file streams.
+    % \end{itemize}
+    % \end{tabular}
+
+    % \vspace{-0.2cm}
+
+    % \fi 
+
+    % \ifdefined\cv
+    % \begin{tabular}{p{\durlen} p{\deslen}}
+    %     \centering May 2018        & \textbf{URISC: Single Instruction Processor and Toolchain} (SystemVerilog, Python, Haskell) \href{https://github.com/suyashmahar/urisc}{\faGithub} \\
+    %                               & \vspace{-0.6cm}\begin{itemize}[itemsep=-2mm]\item Designed and implemented a \texttt{subleq} instruction based processor.
+    %                                 \item Wrote a Python and Haskell based assembler toolchain.
+    %                                 \item Wrote assembler support for limited MIPS ISA, recursive macros, \texttt{include} statements and labels.
+    % \end{itemize}
+    % \end{tabular}
+
+    % \vspace{-0.2cm}
+
+    % \fi 
+    
+    % \begin{tabular}{p{\durlen} p{\deslen}}
+    %     \centering Dec. 2017       & \textbf{.gitignore file manager for Linux} (Shell programming) \href{https://github.com/suyashmahar/pine}{\faGithub} \\
+    %                               & \vspace{-0.6cm}\begin{itemize}[itemsep=-2mm]\item Project work includes writing BASH shell script. \end{itemize}
+    % \end{tabular}
+        
+    % \ifdefined\cv
+    %     \vspace{-0.2cm}
+    % \fi
+    % \ifdefined\resume
+    %     \vspace{0.1cm}
+    % \fi
+ 
+    % \begin{tabular}{p{\durlen} p{\deslen}}
+    %     \centering     2017   & \textbf{Triangle art generating views} (Java programming, Team size: 3) \href{https://github.com/sdsmdg/trianglify}{\faGithub} \\
+        
+    \sectiontitle{\sffamily Skills}
+    
+    \begin{tabular}{p{\durlen} p{\deslen}}
+    \centering \textbf{Technologies} & \hspace{0.5cm}CXL, WebAssembly, RDMA, Software Transactional Memories, Intel MPK, Gem5\\[1mm]
+    \centering \textbf{Skills} & \hspace{0.5cm}Perf, Intel VTune, WebAssembly, MongoDB and Memcached Internals\\[1mm]
+    \centering \textbf{Languages} & \hspace{0.5cm}C++, Python, C, Bash Script, Verilog, \LaTeX, \\[1mm]
+    \end{tabular}
+    
+    
+     
+\end{document}
