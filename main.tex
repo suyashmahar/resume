@@ -199,8 +199,10 @@ ItalicFont = *-Italic,
   \centering June 2023       & \textbf{Google's Cloud Workload Acceleration} \hfill \textit{Google LLC} \\
   \centering -               & \textit{\href{https://techsysinfra.google/research}{Systems Research Group (SRG)}}\\ 
   \centering Dec 2023        & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep]
-          \item Studied Google's workload traces for HW acceleration opportunities.
+          \item Studied Google's workload traces for hardware acceleration opportunities.
           \item Built tools for finding chain-of-accelerator patterns across the fleet.
+          \item Used fleet-wide stack samples to recreate possible execution path for workloads.
+          \item Found multiple examples of potential accelerator chaining across Google's codebase.
   \end{itemize}
 \end{tabular}
 
@@ -208,9 +210,10 @@ ItalicFont = *-Italic,
   \centering June 2022       & \textbf{Meta's Workload profiling for next generation processors} \hfill \textit{Meta Platforms Inc.} \\
   \centering -               & \textit{Capacity Engineering and Analysis (CEA)} \\ 
   \centering Sept 2022       & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep] 
-          \item Worked on profiling and tracing for Meta's workloads to understand hardware needs for the next generation servers.
-          \item Performed detailed analysis of production workloads' memory behavior.
-          \item Evaluated new hardware architectures and microarchitectures using live production traffic.
+          \item Developed tools to profile for Meta's workloads to understand HW needs for the next gen servers.
+          \item Performed detailed analysis of production workloads' memory and cache behavior.
+          \item Showed 9.1\% IPC improvement with production traffic for new microarchitectural changes.
+          \item Developed low-overhead memory access tracing tools for tracing production workloads.
           \item Pre-print of the work available on \href{https://arxiv.org/pdf/2303.08396}{arXiv}.
   \end{itemize}
 \end{tabular}
@@ -219,7 +222,7 @@ ItalicFont = *-Italic,
   \centering Jun 2021       & \textbf{Page migration for tiered memory systems} \hfill \textit{Intel Labs, USA} \\
   \centering -              & \textit{Systems \& Software Research (SSR)} \\ 
   \centering Sept 2021      & \vspace{-0.6cm}\begin{itemize}[itemsep=\workexitemsep] 
-          \item Worked on an FPGA prototype and kernel driver to migrate pages between memories.
+          \item Worked on a cache-coherent FPGA and kernel driver to migrate pages between memories.
           \item Implemented support for tracking pages and sending stats over PCIe using memory mapped regs.
           \item Evaluated the implementation to migrate pages between host memory and FPGA attached DRAM.
   \end{itemize}
@@ -334,13 +337,16 @@ ItalicFont = *-Italic,
     \begin{itemize}[itemsep=\projitemsep]
             \item Developed an RPC framework using CXL's shared memory (SHM) capabilities for datacenter applications.
             \item Implemented safety through new memory protection features while avoiding serialization and compression.
-            \item Addressed scalability limitations of CXL by integrating RDMA-based communication. \end{itemize}
-        \item \textbf{System-level storage abstraction for relocatable and recoverable persistent memory}\hfill{}Dec 2020 - Dec 2021\\
-    \textit{UC San Diego}\vspace{-0.15cm}
+            \item Addressed scalability limitations of CXL by integrating RDMA-based communication. 
+            \item Reduced round-trip RPC latency by 7.2$\times$ compared to state-of-the-art CXL RPC framework.
+      \end{itemize}
+    \item \textbf{System-level storage abstraction for relocatable and recoverable persistent memory}\hfill{}Dec 2020 - Dec 2021\\
+      \textit{UC San Diego}\vspace{-0.15cm}
     \begin{itemize}[itemsep=\projitemsep]
             \item Implemented a new abstraction for accessing persistent memory using Puddles.
             \item Puddles use native, 8-byte pointers for pointing to persistent data while being relocatable.
-            \item Puddles provide recovery as a system support, all data is guaranteed to be recovered by the system after a crash.
+            \item Puddles provide recovery as a system support, data is guaranteed to be recovered by the system after a crash.
+            \item Achieved speedup of up to 1.34$\times$ compared to Intel's PMDK while enable relocation and guaranteed recovery.
     \end{itemize}
 
         \item \textbf{Crash-Consistency bug detection in Persistent Memory software}\hfill{}May 2020 - Aug 2020\\
@@ -348,7 +354,7 @@ ItalicFont = *-Italic,
     \begin{itemize}[itemsep=\projitemsep]
             \item Implemented an end-to-end framework for testing and reporting crash-consistency bugs (CCB).
             \item Designed a fuzzer optimized for focussing on CCB prone execution paths.
-            \item Found new, previously unreported bugs in Intel's PMDK library.
+            \item Found 12 new, previously unreported bugs in Intel's PMDK library.
     \end{itemize}
 
         \item \textbf{Optimization of hardware support for Persistent Memories} \hfill{}Aug 2019 - Dec 2019\\
